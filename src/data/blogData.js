@@ -15,6 +15,7 @@ export const blogPosts = [
       { type: "paragraph", text: "Cada fotógrafo tem um estilo próprio. Alguns são mais tradicionais e posados, outros têm abordagem documental e espontânea. Analise o portfólio completo, não apenas as melhores fotos, e veja se a linguagem visual conversa com o que você imagina para o seu álbum." },
       { type: "heading", text: "2. Experiência em casamentos" },
       { type: "paragraph", text: "Um fotógrafo especializado em casamentos conhece o fluxo da cerimônia e da festa, sabe antecipar os momentos importantes e está preparado para lidar com imprevistos — iluminação desafiadora, cronograma apertado, convidados com expectativas diferentes." },
+      { type: "image" },
       { type: "heading", text: "3. O estilo de entrega" },
       { type: "paragraph", text: "Pergunte sobre o formato de entrega das fotos, os prazos e se há opção de álbum impresso. Muitos casais valorizam ter um álbum físico para folhear com a família e guardar como herança." },
       { type: "heading", text: "4. O olhar humano" },
@@ -136,6 +137,10 @@ export const blogPosts = [
       { type: "paragraph", text: "O título é a primeira coisa que o leitor vê. Ele deve ser claro, direto e despertar curiosidade. Evite títulos muito genéricos como 'Dicas de fotografia' — prefira algo como '5 dicas de fotografia para casamentos ao ar livre'. Isso ajuda tanto o leitor quanto o Google a entender do que se trata o post." },
       { type: "paragraph", text: "Outra dica importante: mantenha o título entre 40 e 60 caracteres. Títulos muito curtos não dizem nada, títulos muito longos são cortados na listagem do blog. O ideal é que ele funcione sozinho, sem precisar do resumo para ser compreendido." },
 
+      // ---- IMAGEM NO CORPO DO POST ----
+      // type "image" insere uma foto aleatória do álbum definido em albumSlug
+      { type: "image" },
+
       // ---- OUTRO SUBTÍTULO ----
       { type: "heading", text: "2. Escrevendo o resumo (excerpt)" },
 
@@ -155,6 +160,9 @@ export const blogPosts = [
       { type: "paragraph", text: "Você deve ter notado que não precisa escolher manualmente uma imagem de capa para o post. O sistema usa o campo 'albumSlug' para buscar automaticamente as fotos do portfólio daquela categoria e sortear uma aleatória a cada carregamento de página." },
       { type: "paragraph", text: "Por exemplo, se você definir albumSlug como 'casamento', o post vai usar uma foto aleatória da pasta src/assets/portfolio/casamento/ como imagem de destaque. Isso garante que cada post tenha sempre uma foto bonita e relevante, sem você precisar se preocupar com isso." },
       { type: "paragraph", text: "Os slugs disponíveis são: casamento, pos-casamento, casal, familia, gestante, sensual, feminino, masculino, editorial e infantil. Escolha aquele que mais combina com o tema do seu artigo." },
+
+      // Outra imagem no corpo
+      { type: "image" },
 
       // ---- FINAL ----
       { type: "heading", text: "5. Finalizando o artigo" },
@@ -177,6 +185,7 @@ export const blogPosts = [
       { type: "paragraph", text: "Aqui está o guia completo com dicas práticas para garantir um resultado incrível." },
       { type: "heading", text: "1. Vista-se com Autenticidade" },
       { type: "paragraph", text: "A regra de ouro é usar roupas que você já veste no dia a dia e que fazem você se sentir bem. Evite peças desconfortáveis ou que pareçam uma fantasia. Roupas bem ajustadas ao corpo valorizam a silhueta. Cores neutras como preto, branco, cinza, azul-marinho e tons terrosos funcionam muito bem e garantem um visual atemporal. Adicionar uma terceira peça, como uma jaqueta de couro, jeans ou um blazer, enriquece o visual e permite fotos variadas apenas tirando ou colocando a peça." },
+      { type: "image" },
       { type: "heading", text: "2. Acessórios que Contam Histórias" },
       { type: "paragraph", text: "Os acessórios ajudam a preencher a composição, dão mais personalidade às fotos e servem como ponto de apoio para as mãos. Relógios marcantes, anéis prateados ou dourados, correntes discretas e óculos de sol transmitem atitude. Elementos como um chapéu, um boné de estilo urbano ou até mesmo uma caneca de café ajudam a compor uma cena mais natural e casual." },
       { type: "heading", text: "3. Poses Descontraídas e Naturais" },

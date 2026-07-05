@@ -8,10 +8,15 @@ export default function BlogPostPage() {
   const { slug } = useParams();
   const post = blogPosts.find((p) => p.slug === slug);
 
-  const randomImage = useMemo(() => {
-    if (!post) return null;
+  const { coverImage, contentImages } = useMemo(() => {
+    if (!post) return { coverImage: null, contentImages: [] };
     const imgs = getAlbumImages(post.albumSlug);
-    return imgs.length > 0 ? imgs[Math.floor(Math.random() * imgs.length)].src : null;
+    const shuffled = [...imgs].sort(() => Math.random() - 0.5);
+    const imageCount = post.content.filter((b) => b.type === "image").length;
+    return {
+      coverImage: shuffled.length > 0 ? shuffled[0]?.src : null,
+      contentImages: shuffled.slice(1, 1 + imageCount).map((i) => i.src),
+    };
   }, [post]);
 
   if (!post) {
@@ -50,11 +55,11 @@ export default function BlogPostPage() {
           </div>
         </section>
 
-        {randomImage && (
+        {coverImage && (
           <section className="px-6 lg:px-10 bg-ink">
             <div className="max-w-content mx-auto">
               <div className="aspect-[16/7] overflow-hidden">
-                <img src={randomImage} alt={post.title} className="w-full h-full object-cover" />
+                <img src={coverImage} alt={post.title} className="w-full h-full object-cover" />
               </div>
             </div>
           </section>
@@ -63,15 +68,28 @@ export default function BlogPostPage() {
         <section className="py-16 md:py-24 px-6 lg:px-10 bg-paper">
           <div className="max-w-content mx-auto max-w-2xl">
             <div className="space-y-5 text-[15px] md:text-base text-graphite font-light leading-[1.8]">
-              {post.content.map((block, i) =>
-                block.type === "heading" ? (
-                  <h2 key={i} className="font-display text-2xl md:text-3xl text-ink font-medium pt-4">
-                    {block.text}
-                  </h2>
-                ) : (
-                  <p key={i}>{block.text}</p>
-                )
-              )}
+              {(() => {
+                let imgIdx = 0;
+                return post.content.map((block, i) => {
+                  if (block.type === "image") {
+                    const src = contentImages[imgIdx++];
+                    if (!src) return null;
+                    return (
+                      <div key={i} className="my-8 overflow-hidden rounded-sm">
+                        <img src={src} alt={post.title} className="w-full object-cover" />
+                      </div>
+                    );
+                  }
+                  if (block.type === "heading") {
+                    return (
+                      <h2 key={i} className="font-display text-2xl md:text-3xl text-ink font-medium pt-4">
+                        {block.text}
+                      </h2>
+                    );
+                  }
+                  return <p key={i}>{block.text}</p>;
+                });
+              })()}
             </div>
 
             <div className="mt-16 pt-10 border-t border-line">
