@@ -120,6 +120,19 @@ export const blogPosts = [
     ],
   },
   {
+    slug: "ensaio-de-familia",
+    title: "Ensaio de Família",
+    excerpt: "Um ensaio fotográfico de família vai muito além de simples poses. É uma experiência de conexão que congela o tempo.",
+    date: "5 Jul 2026",
+    category: "Família",
+    readTime: "1 min",
+    albumSlug: "familia",
+    content: [
+      { type: "paragraph", text: "O tempo passa voando, mas o amor de uma família é eterno. Fazer um ensaio fotográfico não é só sobre registrar sorrisos bonitos ou roupas combinando. É sobre congelar o amor, a cumplicidade e a energia única de vocês exatamente como estão agora. Esses pequenos momentos do dia a dia, os abraços apertados e as gargalhadas espontâneas se transformam na história da sua vida. Seja em um ensaio externo, no aconchego de casa (lifestyle) ou até mesmo em um estúdio, o importante é registrar a essência de vocês. Não deixe para eternizar sua família apenas em fotos de celular!" },
+      { type: "gallery", count: 6 },
+    ],
+  },
+  {
     slug: "ensaio-masculino-autentico",
     title: "Ensaio masculino autêntico: preparação, atitude e naturalidade",
     excerpt: "Guia completo com dicas práticas para um ensaio masculino autêntico — da escolha do look à sintonia com o fotógrafo.",
