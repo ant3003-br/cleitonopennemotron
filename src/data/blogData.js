@@ -112,6 +112,81 @@ export const blogPosts = [
       { type: "paragraph", text: "Não se preocupe em posar perfeitamente. Venham com roupas confortáveis, tragam objetos que sejam significativos e, acima de tudo, estejam presentes. O resto a câmera captura." },
     ],
   },
+  {
+    // ============================================================
+    // EXEMPLO MANUAL — copie este bloco e altere os campos
+    // ============================================================
+    slug: "exemplo-como-criar-um-post",       // URL: /blog/exemplo-como-criar-um-post
+    title: "EXEMPLO: Como criar um post manualmente no blog",  // título principal
+    excerpt: "Este é um modelo didático mostrando todos os campos e como escrever o conteúdo do seu artigo.",  // resumo da listagem
+    date: "05 Jul 2026",                       // data de publicação
+    category: "Casamento",                     // tag visível no card
+    readTime: "99 min",                        // tempo estimado de leitura
+    albumSlug: "casamento",                    // pasta do portfólio para as fotos de capa
+    content: [
+      // ---- PARÁGRAFO ----
+      // type "paragraph" vira um <p> no site
+      { type: "paragraph", text: "Esse é o primeiro parágrafo do post. Aqui você escreve o texto introdutório do artigo. Pode ser tão longo quanto você quiser — uma linha ou um parágrafo enorme. O sistema vai quebrar as linhas automaticamente no navegador." },
+
+      // ---- SUBTÍTULO ----
+      // type "heading" vira um <h2> no site
+      { type: "heading", text: "1. Como escolher o título" },
+
+      // Mais parágrafos
+      { type: "paragraph", text: "O título é a primeira coisa que o leitor vê. Ele deve ser claro, direto e despertar curiosidade. Evite títulos muito genéricos como 'Dicas de fotografia' — prefira algo como '5 dicas de fotografia para casamentos ao ar livre'. Isso ajuda tanto o leitor quanto o Google a entender do que se trata o post." },
+      { type: "paragraph", text: "Outra dica importante: mantenha o título entre 40 e 60 caracteres. Títulos muito curtos não dizem nada, títulos muito longos são cortados na listagem do blog. O ideal é que ele funcione sozinho, sem precisar do resumo para ser compreendido." },
+
+      // ---- OUTRO SUBTÍTULO ----
+      { type: "heading", text: "2. Escrevendo o resumo (excerpt)" },
+
+      { type: "paragraph", text: "O campo 'excerpt' é o texto que aparece embaixo do título na página de listagem do blog (/blog). Ele deve ser um resumo atraente do conteúdo, com no máximo duas frases. Não repita o título — adicione uma informação complementar que convença o leitor a clicar." },
+      { type: "paragraph", text: "Por exemplo, se o título é 'Dicas para escolher o fotógrafo ideal', o resumo pode ser 'Saiba o que considerar na hora da escolha, desde o estilo fotográfico até a conexão pessoal com o profissional.' Percebeu? O resumo expande o título sem ser冗長." },
+
+      // ---- MAIS SUBTÍTULO ----
+      { type: "heading", text: "3. Como organizar o conteúdo" },
+
+      { type: "paragraph", text: "O conteúdo do post é uma lista de blocos. Cada bloco tem um 'type' e um 'text'. Os tipos disponíveis são 'paragraph' para parágrafos e 'heading' para subtítulos. Você pode usar quantos blocos quiser, na ordem que fizer sentido para o seu texto." },
+      { type: "paragraph", text: "Uma boa estrutura para um artigo de blog é: (1) Um parágrafo introdutório explicando do que se trata o artigo, (2) Subtítulos separando cada seção do conteúdo, (3) Parágrafos dentro de cada seção desenvolvendo a ideia, (4) Um parágrafo final de conclusão ou chamada para ação." },
+      { type: "paragraph", text: "Não existe limite de blocos. Se quiser um post com 20 parágrafos e 10 subtítulos, é perfeitamente possível. O sistema vai renderizar tudo em ordem. Apenas tome cuidado para não escrever blocos muito longos — parágrafos de 3 a 5 linhas são mais agradáveis de ler no celular." },
+
+      // ---- DICA VISUAL ----
+      { type: "heading", text: "4. Sobre as imagens do post" },
+
+      { type: "paragraph", text: "Você deve ter notado que não precisa escolher manualmente uma imagem de capa para o post. O sistema usa o campo 'albumSlug' para buscar automaticamente as fotos do portfólio daquela categoria e sortear uma aleatória a cada carregamento de página." },
+      { type: "paragraph", text: "Por exemplo, se você definir albumSlug como 'casamento', o post vai usar uma foto aleatória da pasta src/assets/portfolio/casamento/ como imagem de destaque. Isso garante que cada post tenha sempre uma foto bonita e relevante, sem você precisar se preocupar com isso." },
+      { type: "paragraph", text: "Os slugs disponíveis são: casamento, pos-casamento, casal, familia, gestante, sensual, feminino, masculino, editorial e infantil. Escolha aquele que mais combina com o tema do seu artigo." },
+
+      // ---- FINAL ----
+      { type: "heading", text: "5. Finalizando o artigo" },
+
+      { type: "paragraph", text: "No final de cada post, o site automaticamente exibe uma seção de contato com um botão do WhatsApp, incentivando o leitor a entrar em contato para solicitar um orçamento. Você não precisa adicionar nada no código para isso — já está implementado na página de artigo individual." },
+      { type: "paragraph", text: "Depois de criar o post, basta salvar o arquivo blogData.js e acessar /blog no navegador. O novo artigo aparece automaticamente na listagem, na ordem em que foi adicionado no array. Não é preciso reiniciar o servidor se estiver usando o modo de desenvolvimento (npm run dev) — o Vite atualiza sozinho." },
+      { type: "paragraph", text: "Pronto! Agora você já sabe exatamente como criar um novo post manualmente. Basta copiar este bloco de exemplo, colar antes do '];' no arquivo blogData.js, e alterar todos os campos com as informações do seu artigo. Lembre-se de separar cada post do array com uma vírgula entre o '}' de um e o '{' do próximo." },
+    ],
+  },
+  {
+    slug: "ensaio-masculino-autentico",
+    title: "Ensaio masculino autêntico: preparação, atitude e naturalidade",
+    excerpt: "Guia completo com dicas práticas para um ensaio masculino autêntico — da escolha do look à sintonia com o fotógrafo.",
+    date: "28 Jun 2026",
+    category: "Masculino",
+    readTime: "5 min",
+    albumSlug: "masculino",
+    content: [
+      { type: "paragraph", text: "Um ensaio masculino autêntico exige preparação, atitude e naturalidade. O segredo para resultados marcantes está em alinhar a escolha do ambiente com a sua personalidade, utilizar poses que transmitam conforto e escolher um estilo que respeite a sua essência." },
+      { type: "paragraph", text: "Aqui está o guia completo com dicas práticas para garantir um resultado incrível." },
+      { type: "heading", text: "1. Vista-se com Autenticidade" },
+      { type: "paragraph", text: "A regra de ouro é usar roupas que você já veste no dia a dia e que fazem você se sentir bem. Evite peças desconfortáveis ou que pareçam uma fantasia. Roupas bem ajustadas ao corpo valorizam a silhueta. Cores neutras como preto, branco, cinza, azul-marinho e tons terrosos funcionam muito bem e garantem um visual atemporal. Adicionar uma terceira peça, como uma jaqueta de couro, jeans ou um blazer, enriquece o visual e permite fotos variadas apenas tirando ou colocando a peça." },
+      { type: "heading", text: "2. Acessórios que Contam Histórias" },
+      { type: "paragraph", text: "Os acessórios ajudam a preencher a composição, dão mais personalidade às fotos e servem como ponto de apoio para as mãos. Relógios marcantes, anéis prateados ou dourados, correntes discretas e óculos de sol transmitem atitude. Elementos como um chapéu, um boné de estilo urbano ou até mesmo uma caneca de café ajudam a compor uma cena mais natural e casual." },
+      { type: "heading", text: "3. Poses Descontraídas e Naturais" },
+      { type: "paragraph", text: "O maior desafio costuma ser a rigidez em frente às lentes. A dica principal é focar no movimento e na descontração, evitando ficar totalmente estático. Mantenha os ombros relaxados, mas com a coluna alinhada para transmitir confiança. Coloque uma das mãos no bolso da calça, ajuste o relógio, arrume a gola da camisa ou passe a mão no cabelo — isso quebra o gelo da pose. Varie entre olhar diretamente para a câmera e desviar o olhar para a lateral ou para o horizonte. Caminhar em direção à câmera ou simular passos de lado cria fotos dinâmicas e elimina o visual forçado." },
+      { type: "heading", text: "4. Iluminação e Escolha do Ambiente" },
+      { type: "paragraph", text: "A luz correta valoriza os traços do rosto e define a musculatura, enquanto o cenário dita o tom da narrativa. A luz natural é a melhor aliada — prefira as primeiras horas da manhã ou o fim da tarde (Golden Hour), quando a luz está mais suave e quente. Ruas, becos com grafite, arquitetura moderna ou cafeterias são ideais para um estilo moderno e dinâmico. Parques, praias ou campos trazem sensação de liberdade e leveza. Já o estúdio é perfeito para retratos minimalistas ou ensaios conceituais com controle total da iluminação." },
+      { type: "heading", text: "5. Sintonia com o Fotógrafo" },
+      { type: "paragraph", text: "A conexão com o profissional atrás das câmeras é fundamental para que você se sinta seguro. Converse antes do ensaio, compartilhe referências de fotos que você gosta e explique o que deseja transmitir. Se o ensaio for em estúdio, peça para colocar uma playlist com suas músicas favoritas para ajudar a relaxar e ditar o ritmo dos movimentos." },
+    ],
+  },
 ];
 
 export function getAlbumImages(slug) {
