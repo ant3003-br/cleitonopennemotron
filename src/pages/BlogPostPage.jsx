@@ -103,7 +103,7 @@ export default function BlogPostPage() {
 
         <section className="py-16 md:py-24 px-6 lg:px-10 bg-paper">
           <div className="max-w-content mx-auto max-w-2xl">
-            <div className="text-[17px] md:text-[19px] text-graphite font-light leading-[1.8] [&>p]:mb-5 [&>h2]:mb-5 [&>.clearfix]:clear-both">
+            <div className="md:text-[19px] text-graphite font-light leading-[1.8] [&>p]:mb-5 [&>h2]:mb-5 [&>.clearfix]:clear-both">
               {(() => {
                 let imgIdx = 0;
                 let galleryIdx = 0;
