@@ -1,7 +1,8 @@
-import { useMemo } from "react";
+import { useMemo, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import { blogPosts, getAlbumImages } from "../data/blogData.js";
 import { IconArrowRight, IconWhatsApp } from "../components/Icons.jsx";
+import Lightbox from "../components/Lightbox.jsx";
 import { business } from "../data/siteData.js";
 
 export default function BlogPostPage() {
@@ -33,6 +34,8 @@ export default function BlogPostPage() {
     });
     return { coverImage: coverSrc, contentImages: contentImgs, galleryImages: galleryImgs };
   }, [post]);
+
+  const [lightbox, setLightbox] = useState(null);
 
   if (!post) {
     return (
@@ -87,9 +90,13 @@ export default function BlogPostPage() {
         {coverImage && (
           <section className="px-6 lg:px-10 bg-ink">
             <div className="max-w-content mx-auto">
-              <div className="aspect-[16/7] overflow-hidden">
-                <img src={coverImage} alt={post.title} className="w-full h-full object-cover" />
-              </div>
+              <button
+                type="button"
+                onClick={() => setLightbox({ images: [{ src: coverImage, alt: post.title }], startIndex: 0 })}
+                className="focus-ring-light block w-full aspect-[16/7] overflow-hidden"
+              >
+                <img src={coverImage} alt={post.title} className="w-full h-full object-cover cursor-pointer hover:opacity-90 transition-opacity" />
+              </button>
             </div>
           </section>
         )}
@@ -104,13 +111,19 @@ export default function BlogPostPage() {
                   if (block.type === "gallery") {
                     const group = galleryImages[galleryIdx++];
                     if (!group || group.every((s) => !s)) return null;
+                    const galleryItems = group.filter(Boolean).map((s) => ({ src: s, alt: post.title }));
                     return (
                       <div key={i} className="clearfix my-8 grid grid-cols-2 md:grid-cols-3 gap-2">
                         {group.map((src, gi) =>
                           src ? (
-                            <div key={gi} className="aspect-[4/3] overflow-hidden rounded-sm">
-                              <img src={src} alt={`${post.title} ${gi + 1}`} className="w-full h-full object-cover" />
-                            </div>
+                            <button
+                              key={gi}
+                              type="button"
+                              onClick={() => setLightbox({ images: galleryItems, startIndex: gi })}
+                              className="aspect-[4/3] overflow-hidden rounded-sm"
+                            >
+                              <img src={src} alt={`${post.title} ${gi + 1}`} className="w-full h-full object-cover cursor-pointer hover:opacity-90 transition-opacity" />
+                            </button>
                           ) : null
                         )}
                       </div>
@@ -122,9 +135,14 @@ export default function BlogPostPage() {
                     const blockSize = block.size || "full";
                     const blockAlign = block.align || "center";
                     return (
-                      <div key={i} className={`clearfix ${alignClass(blockAlign, blockSize)} my-6 overflow-hidden rounded-sm ${sizeClass(blockSize)}`}>
-                        <img src={src} alt={post.title} className="w-full object-cover" />
-                      </div>
+                      <button
+                        key={i}
+                        type="button"
+                        onClick={() => setLightbox({ images: [{ src, alt: post.title }], startIndex: 0 })}
+                        className={`clearfix ${alignClass(blockAlign, blockSize)} my-6 overflow-hidden rounded-sm ${sizeClass(blockSize)} block text-left`}
+                      >
+                        <img src={src} alt={post.title} className="w-full object-cover cursor-pointer hover:opacity-90 transition-opacity" />
+                      </button>
                     );
                   }
                   if (block.type === "heading") {
@@ -164,6 +182,14 @@ export default function BlogPostPage() {
           </div>
         </section>
       </article>
+
+      {lightbox && (
+        <Lightbox
+          images={lightbox.images}
+          startIndex={lightbox.startIndex}
+          onClose={() => setLightbox(null)}
+        />
+      )}
     </>
   );
 }
