@@ -52,7 +52,7 @@ export default function ServicosPage() {
                   <p className="text-graphite font-light leading-relaxed text-[14px] mb-6 flex-1">
                     {coverage.description}
                   </p>
-                  <div className="flex items-center gap-3 mt-auto pt-6">
+                  <div className="flex flex-col md:flex-row items-start md:items-center gap-3 mt-auto pt-6">
                     <a
                       href={`https://wa.me/${business.whatsappNumberRaw}?text=Olá! Gostaria de um orçamento para ${coverage.name}.`}
                       target="_blank"
@@ -65,7 +65,7 @@ export default function ServicosPage() {
                     {hasPhotos && (
                       <Link
                         to={`/portfolio/${coverage.slug}`}
-                        className="focus-ring inline-flex items-center gap-2 text-[11px] tracking-[0.1em] uppercase text-ink hover:gap-3 transition-all"
+                        className="focus-ring inline-flex items-center justify-center gap-2 border border-ink/40 text-ink px-5 py-2.5 text-[11px] tracking-[0.1em] uppercase hover:border-ink transition-colors"
                       >
                         Ver fotos
                         <IconArrowRight className="w-3.5 h-3.5" />
