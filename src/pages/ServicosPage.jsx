@@ -1,9 +1,22 @@
+import { useMemo } from "react";
 import { Link } from "react-router-dom";
 import { coverageTypes, business } from "../data/siteData.js";
 import { albums } from "../data/albums.js";
 import { IconWhatsApp, IconArrowRight } from "../components/Icons.jsx";
 
 export default function ServicosPage() {
+  const randomCovers = useMemo(
+    () =>
+      Object.fromEntries(
+        coverageTypes.map((c) => {
+          const album = albums.find((a) => a.slug === c.slug);
+          const imgs = album?.images || [];
+          return [c.slug, imgs.length > 0 ? imgs[Math.floor(Math.random() * imgs.length)].src : null];
+        })
+      ),
+    []
+  );
+
   return (
     <>
       <section className="pt-36 pb-20 md:pt-44 md:pb-24 px-6 lg:px-10 bg-ink text-paper">
@@ -27,6 +40,13 @@ export default function ServicosPage() {
               const hasPhotos = album && album.count > 0;
               return (
                 <div key={coverage.slug} className="bg-paper p-8 md:p-10 flex flex-col">
+                  {randomCovers[coverage.slug] && (
+                    <img
+                      src={randomCovers[coverage.slug]}
+                      alt={coverage.name}
+                      className="w-full aspect-[4/3] object-cover mb-6"
+                    />
+                  )}
                   <span className="font-mono text-graphite text-sm">{String(i + 1).padStart(2, "0")}</span>
                   <h2 className="font-display text-2xl md:text-[28px] mt-4 mb-3 text-ink">{coverage.name}</h2>
                   <p className="text-graphite font-light leading-relaxed text-[14px] mb-6 flex-1">
