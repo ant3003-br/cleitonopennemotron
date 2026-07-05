@@ -173,4 +173,9 @@ export const coverageTypes = [
     name: "Aniversário Infantil",
     description: "Registro dos momentos especiais da festa das crianças.",
   },
+  {
+    slug: "debutantes",
+    name: "15 Anos / Debutantes",
+    description: "Ensaio de debutantes, celebrando os 15 anos com beleza e personalidade.",
+  },
 ];

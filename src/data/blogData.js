@@ -28,13 +28,15 @@ export const blogPosts = [
     title: "Ensaio de debutantes dos 15 anos: como se preparar",
     excerpt: "Tudo o que você precisa saber para arrasar no ensaio fotográfico dos seus 15 anos.",
     date: "8 Jun 2026",
-    category: "Debutantes",
+    category: "15 Anos / Debutantes",
     readTime: "3 min",
-    albumSlug: "feminino",
+    albumSlug: "debutantes",
     content: [
       { type: "paragraph", text: "Os 15 anos são um marco na vida de qualquer garota. O ensaio fotográfico é o momento de eternizar essa transição com beleza, personalidade e, claro, muita diversão." },
+      { type: "image" },
       { type: "heading", text: "Escolha o look com antecedência" },
       { type: "paragraph", text: "Vestidos, maquiagem e cabelo devem ser planejados com pelo menos um mês de antecedência. O ideal é fazer um teste de maquiagem alguns dias antes e levar mais de uma opção de look para variar o visual durante o ensaio." },
+      { type: "image" },
       { type: "heading", text: "Locais que combinam com você" },
       { type: "paragraph", text: "O ensaio pode ser em estúdio, ao ar livre ou em um local que tenha significado especial. Converse com o fotógrafo para escolher cenários que combinem com a sua personalidade. Parques, fazendas e espaços urbanos são opções muito procuradas." },
       { type: "heading", text: "Leve itens pessoais" },
@@ -52,6 +54,7 @@ export const blogPosts = [
     albumSlug: "casal",
     content: [
       { type: "paragraph", text: "O ensaio pré-wedding (ou pré-casamento) é uma das tendências mais queridas entre os noivos. Ele acontece semanas ou meses antes do casamento e tem tudo a ver com celebrar o amor do casal de uma forma leve e descontraída." },
+      { type: "image" },
       { type: "heading", text: "Por que fazer?" },
       { type: "paragraph", text: "Além de render fotos lindas para usar nos convites, nas lembranças e na decoração da festa, o pré-wedding permite que vocês se sintam mais confortáveis com a câmera. No dia do casamento, o fotógrafo já não é mais um estranho — vocês já sabem como se posicionar e o que esperar." },
       { type: "heading", text: "Escolhendo o local" },
@@ -69,6 +72,7 @@ export const blogPosts = [
     albumSlug: "gestante",
     content: [
       { type: "paragraph", text: "O ensaio gestante é uma celebração da vida que está chegando. É o momento de registrar o amor, a expectativa e a conexão entre a mãe, o pai e o bebê." },
+      { type: "image" },
       { type: "heading", text: "1. A época certa" },
       { type: "paragraph", text: "O período ideal para o ensaio gestante é entre a 28ª e a 34ª semana de gestação. A barriga já está bem aparente e a maioria das mães ainda se sente confortável para se movimentar e posar." },
       { type: "heading", text: "2. Roupas leves e significativas" },
@@ -89,6 +93,7 @@ export const blogPosts = [
     albumSlug: "sensual",
     content: [
       { type: "paragraph", text: "O ensaio sensual é muito mais do que um presente — é uma experiência de autoconhecimento, empoderamento e celebração do próprio corpo." },
+      { type: "image" },
       { type: "heading", text: "Presente que transforma" },
       { type: "paragraph", text: "Muitas pessoas procuram o ensaio sensual para presentear o parceiro, mas acabam descobrindo que o maior presente é para elas mesmas. Ver-se através das lentes de um fotógrafo profissional, em um ambiente seguro e acolhedor, é uma experiência libertadora." },
       { type: "heading", text: "Como funciona" },
@@ -107,6 +112,7 @@ export const blogPosts = [
     albumSlug: "familia",
     content: [
       { type: "paragraph", text: "Na fotografia de família, muitas vezes o que mais emociona não é a foto posada com todos olhando para a câmera, mas aquele registro espontâneo que captura um abraço apertado, uma risada gostosa ou um olhar cúmplice." },
+      { type: "image" },
       { type: "heading", text: "Espontaneidade é tudo" },
       { type: "paragraph", text: "Crianças correndo, pais trocando um carinho, avós segurando os netos no colo — esses momentos genuínos são os que fazem o coração disparar quando olhamos o álbum anos depois." },
       { type: "heading", text: "Dica para as famílias" },
