@@ -8,6 +8,8 @@ import Home from "./pages/Home.jsx";
 import ServicosPage from "./pages/ServicosPage.jsx";
 import PortfolioAlbunsPage from "./pages/PortfolioAlbunsPage.jsx";
 import AlbumPage from "./pages/AlbumPage.jsx";
+import BlogPage from "./pages/BlogPage.jsx";
+import BlogPostPage from "./pages/BlogPostPage.jsx";
 
 export default function App() {
   return (
@@ -28,6 +30,8 @@ export default function App() {
           <Route path="/servicos" element={<ServicosPage />} />
           <Route path="/portfolio" element={<PortfolioAlbunsPage />} />
           <Route path="/portfolio/:slug" element={<AlbumPage />} />
+          <Route path="/blog" element={<BlogPage />} />
+          <Route path="/blog/:slug" element={<BlogPostPage />} />
         </Routes>
       </main>
 
