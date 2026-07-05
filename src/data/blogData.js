@@ -120,65 +120,6 @@ export const blogPosts = [
     ],
   },
   {
-    // ============================================================
-    // EXEMPLO MANUAL — copie este bloco e altere os campos
-    // ============================================================
-    slug: "exemplo-como-criar-um-post",       // URL: /blog/exemplo-como-criar-um-post
-    title: "EXEMPLO: Como criar um post manualmente no blog",  // título principal
-    excerpt: "Este é um modelo didático mostrando todos os campos e como escrever o conteúdo do seu artigo.",  // resumo da listagem
-    date: "05 Jul 2026",                       // data de publicação
-    category: "Casamento",                     // tag visível no card
-    readTime: "99 min",                        // tempo estimado de leitura
-    albumSlug: "casamento",                    // pasta do portfólio para as fotos de capa
-    content: [
-      // ---- PARÁGRAFO ----
-      // type "paragraph" vira um <p> no site
-      { type: "paragraph", text: "Esse é o primeiro parágrafo do post. Aqui você escreve o texto introdutório do artigo. Pode ser tão longo quanto você quiser — uma linha ou um parágrafo enorme. O sistema vai quebrar as linhas automaticamente no navegador." },
-
-      // ---- SUBTÍTULO ----
-      // type "heading" vira um <h2> no site
-      { type: "heading", text: "1. Como escolher o título" },
-
-      // Mais parágrafos
-      { type: "paragraph", text: "O título é a primeira coisa que o leitor vê. Ele deve ser claro, direto e despertar curiosidade. Evite títulos muito genéricos como 'Dicas de fotografia' — prefira algo como '5 dicas de fotografia para casamentos ao ar livre'. Isso ajuda tanto o leitor quanto o Google a entender do que se trata o post." },
-      { type: "paragraph", text: "Outra dica importante: mantenha o título entre 40 e 60 caracteres. Títulos muito curtos não dizem nada, títulos muito longos são cortados na listagem do blog. O ideal é que ele funcione sozinho, sem precisar do resumo para ser compreendido." },
-
-      // ---- IMAGEM NO CORPO DO POST ----
-      // type "image" insere uma foto aleatória do álbum definido em albumSlug
-      { type: "image" },
-
-      // ---- OUTRO SUBTÍTULO ----
-      { type: "heading", text: "2. Escrevendo o resumo (excerpt)" },
-
-      { type: "paragraph", text: "O campo 'excerpt' é o texto que aparece embaixo do título na página de listagem do blog (/blog). Ele deve ser um resumo atraente do conteúdo, com no máximo duas frases. Não repita o título — adicione uma informação complementar que convença o leitor a clicar." },
-      { type: "paragraph", text: "Por exemplo, se o título é 'Dicas para escolher o fotógrafo ideal', o resumo pode ser 'Saiba o que considerar na hora da escolha, desde o estilo fotográfico até a conexão pessoal com o profissional.' Percebeu? O resumo expande o título sem ser冗長." },
-
-      // ---- MAIS SUBTÍTULO ----
-      { type: "heading", text: "3. Como organizar o conteúdo" },
-
-      { type: "paragraph", text: "O conteúdo do post é uma lista de blocos. Cada bloco tem um 'type' e um 'text'. Os tipos disponíveis são 'paragraph' para parágrafos e 'heading' para subtítulos. Você pode usar quantos blocos quiser, na ordem que fizer sentido para o seu texto." },
-      { type: "paragraph", text: "Uma boa estrutura para um artigo de blog é: (1) Um parágrafo introdutório explicando do que se trata o artigo, (2) Subtítulos separando cada seção do conteúdo, (3) Parágrafos dentro de cada seção desenvolvendo a ideia, (4) Um parágrafo final de conclusão ou chamada para ação." },
-      { type: "paragraph", text: "Não existe limite de blocos. Se quiser um post com 20 parágrafos e 10 subtítulos, é perfeitamente possível. O sistema vai renderizar tudo em ordem. Apenas tome cuidado para não escrever blocos muito longos — parágrafos de 3 a 5 linhas são mais agradáveis de ler no celular." },
-
-      // ---- DICA VISUAL ----
-      { type: "heading", text: "4. Sobre as imagens do post" },
-
-      { type: "paragraph", text: "Você deve ter notado que não precisa escolher manualmente uma imagem de capa para o post. O sistema usa o campo 'albumSlug' para buscar automaticamente as fotos do portfólio daquela categoria e sortear uma aleatória a cada carregamento de página." },
-      { type: "paragraph", text: "Por exemplo, se você definir albumSlug como 'casamento', o post vai usar uma foto aleatória da pasta src/assets/portfolio/casamento/ como imagem de destaque. Isso garante que cada post tenha sempre uma foto bonita e relevante, sem você precisar se preocupar com isso." },
-      { type: "paragraph", text: "Os slugs disponíveis são: casamento, pos-casamento, casal, familia, gestante, sensual, feminino, masculino, editorial e infantil. Escolha aquele que mais combina com o tema do seu artigo." },
-
-      // Outra imagem no corpo
-      { type: "image" },
-
-      // ---- FINAL ----
-      { type: "heading", text: "5. Finalizando o artigo" },
-
-      { type: "paragraph", text: "No final de cada post, o site automaticamente exibe uma seção de contato com um botão do WhatsApp, incentivando o leitor a entrar em contato para solicitar um orçamento. Você não precisa adicionar nada no código para isso — já está implementado na página de artigo individual." },
-      { type: "paragraph", text: "Depois de criar o post, basta salvar o arquivo blogData.js e acessar /blog no navegador. O novo artigo aparece automaticamente na listagem, na ordem em que foi adicionado no array. Não é preciso reiniciar o servidor se estiver usando o modo de desenvolvimento (npm run dev) — o Vite atualiza sozinho." },
-      { type: "paragraph", text: "Pronto! Agora você já sabe exatamente como criar um novo post manualmente. Basta copiar este bloco de exemplo, colar antes do '];' no arquivo blogData.js, e alterar todos os campos com as informações do seu artigo. Lembre-se de separar cada post do array com uma vírgula entre o '}' de um e o '{' do próximo." },
-    ],
-  },
-  {
     slug: "ensaio-masculino-autentico",
     title: "Ensaio masculino autêntico: preparação, atitude e naturalidade",
     excerpt: "Guia completo com dicas práticas para um ensaio masculino autêntico — da escolha do look à sintonia com o fotógrafo.",
