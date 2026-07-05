@@ -1,0 +1,16 @@
+{
+  "name": "Cleiton Lages Fotografias",
+  "short_name": "Cleiton Lages",
+  "description": "Fotógrafo profissional em Contagem, MG — casamentos, debutantes e ensaios.",
+  "icons": [
+    {
+      "src": "/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "theme_color": "#0A0A0A",
+  "background_color": "#FAFAF8",
+  "display": "standalone",
+  "start_url": "/"
+}

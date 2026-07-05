@@ -1,0 +1,50 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+html {
+  scroll-padding-top: 88px;
+}
+
+body {
+  @apply bg-paper text-ink font-sans antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  @apply bg-ink text-paper;
+}
+
+/* Foco visível e consistente para navegação por teclado */
+.focus-ring {
+  @apply outline-none focus-visible:ring-2 focus-visible:ring-ink focus-visible:ring-offset-2 focus-visible:ring-offset-paper;
+}
+
+.focus-ring-light {
+  @apply outline-none focus-visible:ring-2 focus-visible:ring-paper focus-visible:ring-offset-2 focus-visible:ring-offset-ink;
+}
+
+/* Trava o scroll do body quando o lightbox / menu mobile está aberto */
+.no-scroll {
+  overflow: hidden;
+}
+
+/* Scrollbar discreta (onde suportado) */
+@supports (scrollbar-width: thin) {
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: #55534e transparent;
+  }
+}
+
+/* Evita "flash" de conteúdo não estilizado em imagens lazy */
+img {
+  color: transparent;
+}
