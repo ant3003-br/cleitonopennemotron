@@ -133,6 +133,23 @@ export const blogPosts = [
     ],
   },
   {
+    slug: "ensaio-casamento-o-altar-do-tempo-por-que",
+    title: "Ensaio Casamento: O Altar do Tempo: Por que...",
+    excerpt: "O Altar do Tempo: Por que o amor merece ser eterno? O dia do seu casamento será repleto de promessas sussurradas, sor...",
+    date: "5 Jul 2026",
+    category: "Casamento",
+    readTime: "1 min",
+    albumSlug: "casamento",
+    content: [
+      { type: "paragraph", text: "O Altar do Tempo: Por que o amor merece ser eterno? O dia do seu casamento será repleto de promessas sussurradas, sorrisos cúmplices e lágrimas que teimam em cair. É um dos capítulos mais bonitos da sua história. Mas as flores vão murchar, o som dos brindes vai silenciar e o vestido será guardado. O que fica quando as luzes da festa se apagam?" },
+      { type: "paragraph", text: "Ficam as memórias. E a única forma de tocá-las novamente é através da fotografia." },
+      { type: "paragraph", text: "Não entregamos apenas imagens nítidas ou enquadramentos perfeitos. Nós capturamos a respiração presa antes do \"sim\", o abraço apertado de quem ama vocês desde sempre e a vibração de uma promessa que atravessará gerações. É o registro da sua herança visual." },
+      { type: "image", size: "medium", align: "right" },
+      { type: "paragraph", text: "Dizem que o amor é invisível, mas nós discordamos. Nós o vemos em cada detalhe, e estamos prontos para torná-lo eterno para você." },
+      { type: "gallery", count: 6 },
+    ],
+  },
+  {
     slug: "ensaio-masculino-autentico",
     title: "Ensaio masculino autêntico: preparação, atitude e naturalidade",
     excerpt: "Guia completo com dicas práticas para um ensaio masculino autêntico — da escolha do look à sintonia com o fotógrafo.",
