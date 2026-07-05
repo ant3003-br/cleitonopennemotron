@@ -6,6 +6,7 @@ export default function Lightbox({ images, startIndex, onClose }) {
   const total = images.length;
   const closeButtonRef = useRef(null);
   const previouslyFocusedRef = useRef(null);
+  const touchStartRef = useRef(null);
 
   // trava o scroll do body e gerencia o foco (abre no botão fechar,
   // devolve o foco ao elemento que abriu o lightbox ao fechar)
@@ -32,6 +33,20 @@ export default function Lightbox({ images, startIndex, onClose }) {
     return () => window.removeEventListener("keydown", onKeyDown);
   }, [onClose, total]);
 
+  // navegação por swipe (touch)
+  function onTouchStart(e) {
+    touchStartRef.current = { x: e.touches[0].clientX, y: e.touches[0].clientY };
+  }
+
+  function onTouchEnd(e) {
+    if (!touchStartRef.current) return;
+    const dx = e.changedTouches[0].clientX - touchStartRef.current.x;
+    const dy = e.changedTouches[0].clientY - touchStartRef.current.y;
+    touchStartRef.current = null;
+    if (Math.abs(dx) < 50 || Math.abs(dy) > Math.abs(dx) * 1.5) return;
+    setIndex((i) => (dx > 0 ? (i - 1 + total) % total : (i + 1) % total));
+  }
+
   // pré-carrega a imagem anterior e a próxima para navegação mais fluida
   useEffect(() => {
     [(index + 1) % total, (index - 1 + total) % total].forEach((i) => {
@@ -51,6 +66,8 @@ export default function Lightbox({ images, startIndex, onClose }) {
       onClick={(e) => {
         if (e.target === e.currentTarget) onClose();
       }}
+      onTouchStart={total > 1 ? onTouchStart : undefined}
+      onTouchEnd={total > 1 ? onTouchEnd : undefined}
     >
       <div className="flex items-center justify-between px-5 md:px-8 py-5 font-mono text-paper/70 text-[12px] shrink-0">
         <span>
