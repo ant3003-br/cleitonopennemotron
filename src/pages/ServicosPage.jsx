@@ -32,15 +32,26 @@ export default function ServicosPage() {
                   <p className="text-graphite font-light leading-relaxed text-[14px] mb-6 flex-1">
                     {coverage.description}
                   </p>
-                  {hasPhotos && (
-                    <Link
-                      to={`/portfolio/${coverage.slug}`}
-                      className="focus-ring inline-flex items-center gap-2 text-[12px] tracking-[0.1em] uppercase text-ink hover:gap-3 transition-all self-start"
+                  <div className="flex items-center gap-3 mt-auto pt-6">
+                    <a
+                      href={`https://wa.me/${business.whatsappNumberRaw}?text=Olá! Gostaria de um orçamento para ${coverage.name}.`}
+                      target="_blank"
+                      rel="nofollow noopener noreferrer"
+                      className="focus-ring inline-flex items-center gap-2 bg-ink text-paper px-5 py-2.5 text-[11px] tracking-[0.1em] uppercase hover:bg-ink/85 transition-colors shrink-0"
                     >
-                      Ver fotos
-                      <IconArrowRight className="w-4 h-4" />
-                    </Link>
-                  )}
+                      <IconWhatsApp className="w-3.5 h-3.5" />
+                      Solicitar orçamento
+                    </a>
+                    {hasPhotos && (
+                      <Link
+                        to={`/portfolio/${coverage.slug}`}
+                        className="focus-ring inline-flex items-center gap-2 text-[11px] tracking-[0.1em] uppercase text-ink hover:gap-3 transition-all"
+                      >
+                        Ver fotos
+                        <IconArrowRight className="w-3.5 h-3.5" />
+                      </Link>
+                    )}
+                  </div>
                 </div>
               );
             })}
