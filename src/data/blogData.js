@@ -139,8 +139,10 @@ export const blogPosts = [
       { type: "paragraph", text: "O maior desafio costuma ser a rigidez em frente às lentes. A dica principal é focar no movimento e na descontração, evitando ficar totalmente estático. Mantenha os ombros relaxados, mas com a coluna alinhada para transmitir confiança. Coloque uma das mãos no bolso da calça, ajuste o relógio, arrume a gola da camisa ou passe a mão no cabelo — isso quebra o gelo da pose. Varie entre olhar diretamente para a câmera e desviar o olhar para a lateral ou para o horizonte. Caminhar em direção à câmera ou simular passos de lado cria fotos dinâmicas e elimina o visual forçado." },
       { type: "heading", text: "4. Iluminação e Escolha do Ambiente" },
       { type: "paragraph", text: "A luz correta valoriza os traços do rosto e define a musculatura, enquanto o cenário dita o tom da narrativa. A luz natural é a melhor aliada — prefira as primeiras horas da manhã ou o fim da tarde (Golden Hour), quando a luz está mais suave e quente. Ruas, becos com grafite, arquitetura moderna ou cafeterias são ideais para um estilo moderno e dinâmico. Parques, praias ou campos trazem sensação de liberdade e leveza. Já o estúdio é perfeito para retratos minimalistas ou ensaios conceituais com controle total da iluminação." },
+      { type: "image", size: "medium", align: "left" },
       { type: "heading", text: "5. Sintonia com o Fotógrafo" },
       { type: "paragraph", text: "A conexão com o profissional atrás das câmeras é fundamental para que você se sinta seguro. Converse antes do ensaio, compartilhe referências de fotos que você gosta e explique o que deseja transmitir. Se o ensaio for em estúdio, peça para colocar uma playlist com suas músicas favoritas para ajudar a relaxar e ditar o ritmo dos movimentos." },
+      { type: "gallery", count: 4 },
     ],
   },
 ];

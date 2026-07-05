@@ -8,15 +8,30 @@ export default function BlogPostPage() {
   const { slug } = useParams();
   const post = blogPosts.find((p) => p.slug === slug);
 
-  const { coverImage, contentImages } = useMemo(() => {
-    if (!post) return { coverImage: null, contentImages: [] };
+  const { coverImage, contentImages, galleryImages } = useMemo(() => {
+    if (!post) return { coverImage: null, contentImages: [], galleryImages: [] };
     const imgs = getAlbumImages(post.albumSlug);
     const shuffled = [...imgs].sort(() => Math.random() - 0.5);
-    const imageCount = post.content.filter((b) => b.type === "image").length;
-    return {
-      coverImage: shuffled.length > 0 ? shuffled[0]?.src : null,
-      contentImages: shuffled.slice(1, 1 + imageCount).map((i) => i.src),
-    };
+    let idx = 0;
+    const coverSrc = shuffled.length > 0 ? shuffled[idx++]?.src : null;
+    const contentImgs = [];
+    const galleryImgs = [];
+    post.content.forEach((block) => {
+      if (block.type === "image") {
+        contentImgs.push(shuffled[idx]?.src || null);
+        idx++;
+      }
+      if (block.type === "gallery") {
+        const count = block.count || 3;
+        const group = [];
+        for (let g = 0; g < count; g++) {
+          group.push(shuffled[idx]?.src || null);
+          idx++;
+        }
+        galleryImgs.push(group);
+      }
+    });
+    return { coverImage: coverSrc, contentImages: contentImgs, galleryImages: galleryImgs };
   }, [post]);
 
   if (!post) {
@@ -31,6 +46,20 @@ export default function BlogPostPage() {
         </div>
       </section>
     );
+  }
+
+  function sizeClass(size) {
+    if (size === "small") return "max-w-[200px]";
+    if (size === "medium") return "max-w-[320px]";
+    if (size === "large") return "max-w-[480px]";
+    return "w-full";
+  }
+
+  function alignClass(align, size) {
+    if (!size || size === "full") return "mx-auto";
+    if (align === "left") return "float-left mr-6 mb-4";
+    if (align === "right") return "float-right ml-6 mb-4";
+    return "mx-auto";
   }
 
   return (
@@ -67,22 +96,40 @@ export default function BlogPostPage() {
 
         <section className="py-16 md:py-24 px-6 lg:px-10 bg-paper">
           <div className="max-w-content mx-auto max-w-2xl">
-            <div className="space-y-5 text-[15px] md:text-base text-graphite font-light leading-[1.8]">
+            <div className="text-[15px] md:text-base text-graphite font-light leading-[1.8] [&>p]:mb-5 [&>h2]:mb-5 [&>.clearfix]:clear-both">
               {(() => {
                 let imgIdx = 0;
+                let galleryIdx = 0;
                 return post.content.map((block, i) => {
+                  if (block.type === "gallery") {
+                    const group = galleryImages[galleryIdx++];
+                    if (!group || group.every((s) => !s)) return null;
+                    return (
+                      <div key={i} className="clearfix my-8 grid grid-cols-2 md:grid-cols-3 gap-2">
+                        {group.map((src, gi) =>
+                          src ? (
+                            <div key={gi} className="aspect-[4/3] overflow-hidden rounded-sm">
+                              <img src={src} alt={`${post.title} ${gi + 1}`} className="w-full h-full object-cover" />
+                            </div>
+                          ) : null
+                        )}
+                      </div>
+                    );
+                  }
                   if (block.type === "image") {
                     const src = contentImages[imgIdx++];
                     if (!src) return null;
+                    const blockSize = block.size || "full";
+                    const blockAlign = block.align || "center";
                     return (
-                      <div key={i} className="my-8 overflow-hidden rounded-sm">
+                      <div key={i} className={`clearfix ${alignClass(blockAlign, blockSize)} my-6 overflow-hidden rounded-sm ${sizeClass(blockSize)}`}>
                         <img src={src} alt={post.title} className="w-full object-cover" />
                       </div>
                     );
                   }
                   if (block.type === "heading") {
                     return (
-                      <h2 key={i} className="font-display text-2xl md:text-3xl text-ink font-medium pt-4">
+                      <h2 key={i} className="clear-both font-display text-2xl md:text-3xl text-ink font-medium pt-4">
                         {block.text}
                       </h2>
                     );
